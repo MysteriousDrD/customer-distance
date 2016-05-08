@@ -10,7 +10,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
 
-public class InputHandler {
+//class to handle JSON related operations using JSON simple
+public class JsonHandler {
 
     public static Customer[] getArrayofCustomers(String jsonLocation) {
         JSONParser parser = new JSONParser();
@@ -28,17 +29,16 @@ public class InputHandler {
         }
 
         JSONArray customerArray = (JSONArray) customerJSON.get("customers");
-
         List<Customer> customers  = new ArrayList<>();
         for(Object customerObj : customerArray)
         {
             customers.add(new Customer( (JSONObject) customerObj));
         }
 
-        Customer[] resultsArray = new Customer[customers.size()];
-        resultsArray = customers.toArray(resultsArray);
+        Customer[] parsedCustomers = new Customer[customers.size()];
+        parsedCustomers = customers.toArray(parsedCustomers);
 
-        return resultsArray;
+        return parsedCustomers;
 
     }
 }

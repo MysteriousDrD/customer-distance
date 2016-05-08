@@ -1,5 +1,3 @@
-import sun.util.resources.cldr.sq.CurrencyNames_sq;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -8,7 +6,7 @@ public class main {
 
     public static void main(String[] args)
     {
-        Customer customers[] = InputHandler.getArrayofCustomers("customers.json");
+        Customer customers[] = JsonHandler.getArrayofCustomers("customers.json");
 
         List<Customer> customersWithinRange  = new ArrayList<>();
         for(Customer cust : customers)
