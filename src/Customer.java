@@ -1,16 +1,18 @@
 import org.json.simple.JSONObject;
 public class Customer implements Comparable<Customer>{
-    private long userid;
-    private String name;
-    private double latitude;
-    private double longitude;
+    private long userid=0;
+    private String name="null";
+    private double latitude=0;
+    private double longitude=0;
 
     public Customer(JSONObject cust)
     {
-        this.name = cust.get("name").toString();
-        this.userid = (long) cust.get("user_id");
-        this.latitude = Double.parseDouble(cust.get("latitude").toString());
-        this.longitude = Double.parseDouble(cust.get("longitude").toString());
+        if(cust != null) {
+            this.name = cust.get("name").toString();
+            this.userid = (long) cust.get("user_id");
+            this.latitude = Double.parseDouble(cust.get("latitude").toString());
+            this.longitude = Double.parseDouble(cust.get("longitude").toString());
+        }
     }
 
     public String getName()
